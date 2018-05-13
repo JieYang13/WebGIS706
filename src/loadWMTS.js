@@ -1,3 +1,4 @@
+var map;
 function loadWMTS(){
     var place={ "type": "FeatureCollection",
         "features": [
@@ -68,13 +69,12 @@ function loadWMTS(){
             format: "image/png"
         }
     );
-
-    var map = L.map('map').setView([34, 109], 5);
-
+    map = L.map('map').setView([34, 109], 5);
     L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
 
-    map.addLayer(bs);
     map.addLayer(layer);
+    map.addLayer(bs);
+
 
     var baseLayers = {
         "北宋" : bs,
@@ -82,7 +82,7 @@ function loadWMTS(){
     };
 
     L.geoJson(place).addTo(map);
-    L.control.layers(baseLayers, {}).addTo(map);
+   // L.control.layers(baseLayers, {}).addTo(map);
 
     var popup = L.popup();
     function onMapClick(e) {
@@ -91,7 +91,5 @@ function loadWMTS(){
             .setContent("You clicked the map at " + e.latlng.toString())
             .openOn(map);
     }
-
     map.on('click', onMapClick);
-
 }

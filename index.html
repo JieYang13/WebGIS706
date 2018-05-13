@@ -6,12 +6,56 @@
     <link rel="stylesheet" href="libs/leaflet.css" />
     <script src="libs/leaflet.js"></script>
     <script src="libs/leaflet-tilelayer-wmts-src.js"></script>
-    <script src="src/loadWMTS.js"></script>
+    <link rel="stylesheet" href="dom/bootstrap-3.3.7/css/bootstrap-treeview.min.css">
+    <link rel="stylesheet" href="dom/bootstrap-3.3.7/css/glyphicons.css">
+    <link rel="stylesheet" href="dom/css/common.css">
+    <link rel="stylesheet" href="dom/css/index.css">
+    <script src="dom/js/jquery.min.js"></script>
+    <script src="dom/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="dom/bootstrap-3.3.7/js/bootstrap-treeview.min.js"></script>
+    <script src="dom/js/require.js"></script>
+    <script src="libs/leaflet-echarts.js"></script>
+    <script src="libs/echarts.source.js"></script>
+    <script src="src/loadWMTS.js"></script><link rel="stylesheet" href="dom/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="src/addRemoval.js"></script>
 </head>
 <body>
-<div id="map" style="height: 100%; width: 100%"></div>
+<!--地图右边工具-->
+<div class="rightTips">
+    <div class="rightMenu" id="right_menu">
+        <ul>
+            <li data-href="dom/view/emotion.html">
+                <span title="搜索" ><i class="icon-search"></i></span>
+            </li>
+            <li  data-href="dom/view/emotion.html">
+                <span title="分析"><i class="icon-sort"></i></span>
+            </li>
+            <li data-href="dom/view/trajectory.html">
+                <span title="轨迹"><i class="icon-show-big-thumbnails"></i></span>
+            </li>
+            <li data-href="dom/view/mapSet.html">
+                <span title="设置"><i class="icon-cogwheels"></i></span>
+            </li>
+        </ul>
+    </div>
+    <div class="menuBox" id="right_menu_box">
+        <button id="right_close" type="button" class="close boxClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div id="menu_content">
+
+        </div>
+    </div>
+</div>
+<div id="map" class="mapBox"></div>
 <script>
     loadWMTS();
+    //页面按钮响应
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        require(["dom/js/index"], function (mapModel) {
+            mapModel.int();
+        });
+    })
+   addRemoval();
 </script>
 
 </body>
