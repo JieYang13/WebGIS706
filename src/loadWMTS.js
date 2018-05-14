@@ -81,7 +81,7 @@ function loadWMTS(){
         "南宋":ns
     };
 
-    L.geoJson(place).addTo(map);
+   // L.geoJson(place).addTo(map);
    // L.control.layers(baseLayers, {}).addTo(map);
 
     var popup = L.popup();

@@ -18,14 +18,17 @@
     <script src="libs/echarts.source.js"></script>
     <script src="src/loadWMTS.js"></script><link rel="stylesheet" href="dom/bootstrap-3.3.7/css/bootstrap.min.css">
     <script src="src/addRemoval.js"></script>
+    <script src="src/N-Song.js"></script>
+    <script src="src/S-Song.js"></script>
+    <script src="src/addEmotion.js"></script>
 </head>
 <body>
 <!--地图右边工具-->
 <div class="rightTips">
     <div class="rightMenu" id="right_menu">
         <ul>
-            <li data-href="dom/view/emotion.html">
-                <span title="搜索" ><i class="icon-search"></i></span>
+            <li data-href="dom/view/point.html">
+                <span title="点图" ><i class="icon-search"></i></span>
             </li>
             <li  data-href="dom/view/emotion.html">
                 <span title="分析"><i class="icon-sort"></i></span>
@@ -55,7 +58,8 @@
             mapModel.int();
         });
     })
-   addRemoval();
+  // addRemoval();
+    addEmotion();
 </script>
 
 </body>
