@@ -1,6 +1,7 @@
 // 点图点击后的响应函数
 function pointButtonClick(){
     document.getElementById('pointColor').style.visibility = 'visible';
+    addEmotion();
 }
 
 // 苏轼情感迁徙点响应函数
