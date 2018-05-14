@@ -55,7 +55,7 @@
 .rightTips{
     position: absolute;
     z-index: 100;
-    top: 0px;
+    top: 100px;
     right: 10px;
 }
 .rightMenu{

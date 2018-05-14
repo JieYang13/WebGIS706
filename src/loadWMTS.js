@@ -1,51 +1,20 @@
+//加载数据
 var map;
 function loadWMTS(){
-    var place={ "type": "FeatureCollection",
-        "features": [
-            { "type": "Feature",
-                "id":"01",
-                "geometry": {"type": "Point", "coordinates": [113.014717, 25.770509]},
-                "properties": {"name": "郴州"}
-            },
-            { "type": "Feature",
-                "id":"02",
-                "geometry": {"type": "Point", "coordinates": [108.311462, 29.311549]},
-                "properties": {"name": "黔州"}
-            },
-            { "type": "Feature",
-                "id":"03",
-                "geometry": {"type": "Point", "coordinates": [115.814504, 32.890479]},
-                "properties": {"name": "颖州"}
-            },
-            { "type": "Feature",
-                "id":"04",
-                "geometry": {"type": "Point", "coordinates": [126.534967, 45.803775]},
-                "properties": {"name": "依兰县"}
-            },
-            { "type": "Feature",
-                "id":"05",
-                "geometry": {"type": "Point", "coordinates": [120.1551656, 30.27417023]},
-                "properties": {"name": "杭州"}
-            },
-            { "type": "Feature",
-                "id":"06",
-                "geometry": {"type": "Point", "coordinates": [120.088045, 30.89305236]},
-                "properties": {"name": "湖州"}
-            }
-        ]
-    }
 
     var layer = L.tileLayer('http://mt0.google.cn/vt/lyrs=m@160000000&hl=zh-CN&gl=CN&src=app&y={y}&x={x}&z={z}&s=Ga', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     });
 
-    // var map = L.map('allmap',{
-    //     minZoom: 4,
-    //     maxZoom: 13
-    // }).setView([48.505, 3.09], 13);
+
+    map = L.map('map',{
+        minZoom: 4,
+        maxZoom: 13
+    }).setView([34, 109], 5);
+
+    L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
 
 
-   //L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
     var layerbs= "ad1111";
     // The WMTS URL
     var url = "http://gis.sinica.edu.tw/ccts/wmts";
@@ -54,7 +23,7 @@ function loadWMTS(){
         {
             layer: layerbs,
             style: "normal",
-           // tilematrixSet: "GoogleMapsCompatible",
+            // tilematrixSet: "GoogleMapsCompatible",
             format: "image/png"
         }
     );
@@ -69,8 +38,11 @@ function loadWMTS(){
             format: "image/png"
         }
     );
-    map = L.map('map').setView([34, 109], 5);
-    L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
+
+
+
+    // L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
+
 
     map.addLayer(layer);
     map.addLayer(bs);
@@ -81,9 +53,9 @@ function loadWMTS(){
         "南宋":ns
     };
 
-   // L.geoJson(place).addTo(map);
-   // L.control.layers(baseLayers, {}).addTo(map);
+    L.control.layers(baseLayers, {}).addTo(map);
 
+//点击显示坐标位置
     var popup = L.popup();
     function onMapClick(e) {
         popup
@@ -91,5 +63,36 @@ function loadWMTS(){
             .setContent("You clicked the map at " + e.latlng.toString())
             .openOn(map);
     }
+
     map.on('click', onMapClick);
+// MiniMap();
+
+
+    addNPoint();
+    L.control.search({
+        position:'topleft',
+        layer: pubs1,
+        initial: false,
+        propertyName: 'place',
+        buildTip: function(text, val) {
+            var type = val.layer.feature.properties.place;
+            return '<a href="#" class="'+type+'">'+""+'<b>'+type+'</b></a>';
+        }
+    }).addTo(map);
+
+    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmAttrib='Map data &copy; OpenStreetMap contributors';
+    var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 18, attribution: osmAttrib});
+
+    map.addLayer(osm);
+
+
+    //Plugin magic goes here! Note that you cannot use the same layer object again, as that will confuse the two map controls
+    var osm2 = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 18, attribution: osmAttrib});
+    var miniMap = new L.Control.MiniMap(osm2, {
+        // position:'bottomleft',
+        width: 250,
+        height: 250
+    }).addTo(map);
+
 }
