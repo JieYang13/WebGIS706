@@ -9,11 +9,52 @@ function pointButtonClick(){
         }
     }
     switch (time){
-        case '北宋980-1093' :var layer = addEmotion(NSong980.features);pointLayer.push(layer);break;
-        case '北宋1094-1127':var layer = addEmotion(NSong1094.features);pointLayer.push(layer);break;
-        case '南宋1128-1189':var layer = addEmotion(SSong1128.features);pointLayer.push(layer);break;
-        case '南宋1190-1278':var layer = addEmotion(SSong1190.features);pointLayer.push(layer);break;
-        default : var layer = addEmotion(NSong980.features);pointLayer.push(layer);break;
+        case '北宋980-1093' :
+            if(map.hasLayer(basemap[1])==true){
+                map.removeLayer(basemap[1]);
+            }
+            if(map.hasLayer(basemap[0])!=true){
+                map.addLayer(basemap[0]);
+            }
+            var layer = addEmotion(NSong980.features);
+            pointLayer.push(layer);
+            break;
+        case '北宋1094-1127':
+            if(map.hasLayer(basemap[1])==true){
+                map.removeLayer(basemap[1]);
+            }
+            if(map.hasLayer(basemap[0])!=true){
+                map.addLayer(basemap[0]);
+            }
+            var layer = addEmotion(NSong1094.features);
+            pointLayer.push(layer);break;
+        case '南宋1128-1189':
+            if(map.hasLayer(basemap[0])==true){
+                map.removeLayer(basemap[0]);
+            }
+            if(map.hasLayer(basemap[1])!=true){
+                map.addLayer(basemap[1]);
+            }
+            var layer = addEmotion(SSong1128.features);
+            pointLayer.push(layer);break;
+        case '南宋1190-1278':
+            if(map.hasLayer(basemap[0])==true){
+                map.removeLayer(basemap[0]);
+            }
+            if(map.hasLayer(basemap[1])!=true){
+                map.addLayer(basemap[1]);
+            }
+            var layer = addEmotion(SSong1190.features);
+            pointLayer.push(layer);break;
+        default :
+            if(map.hasLayer(basemap[1])==true){
+                map.removeLayer(basemap[1]);
+            }
+            if(map.hasLayer(basemap[0])!=true){
+                map.addLayer(basemap[0]);
+            }
+            var layer = addEmotion(NSong980.features);
+            pointLayer.push(layer);break;
     }
 }
 

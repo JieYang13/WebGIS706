@@ -36,7 +36,8 @@ function addRemoval(optiondata){
             min : -1,
             max : 1,
             calculable : true,
-            color: ['#14ff1d', 'white', 'red','lime','aqua'],
+            // color: ['#03b7ff', 'white', 'red','lime','aqua'],
+            color:['#ff0004','#f5f2ff','#002cff'],
             textStyle:{
                 color:'#fff'
             }

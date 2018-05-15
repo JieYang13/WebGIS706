@@ -8,6 +8,11 @@ define(function (require, exports, module) {
             $(document).on('click', '#right_close', function () {
                 $('#right_menu_box').hide();
                 $('#right_menu .active').removeClass('active');
+                map.eachLayer(function(layer){
+                    map.removeLayer(layer);
+                });
+                map.addLayer(basemap[2]);
+                map.addLayer(basemap[0]);
             });
             // 右侧菜单点击按钮
             $(document).off('click', '#right_menu li');
@@ -19,7 +24,11 @@ define(function (require, exports, module) {
                 if (link) {
                     $('#menu_content').load(link);
                 }
-
+                map.eachLayer(function(layer){
+                    map.removeLayer(layer);
+                });
+                map.addLayer(basemap[2]);
+                map.addLayer(basemap[0]);
             });
             // 关闭底部地图样式按钮
             $(document).off('click', '#bottom_close');

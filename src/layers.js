@@ -30,10 +30,19 @@ $('#treeview-checkable').treeview({
             if(map.hasLayer(basemap[0])!=true){
                 map.addLayer(basemap[0]);
                 addNPoint();
-               // search(pubs1);
-                searchlayer.options.layer=pubs1;
+                var options = {
+                    position:'topleft',
+                    layer:pubs1,
+                    initial: false,
+                    propertyName: 'place',
+                    buildTip: function(text, val) {
+                        var type = val.layer.feature.properties.place;
+                        return '<a href="#" class="'+type+'">'+""+'<b>'+type+'</b></a>';
+                    }
+                };
+                searchlayer.initialize(options);
             }
-            if(map.hasLayer(basemap[1]==true)){
+            if(map.hasLayer(basemap[1])==true){
                 map.removeLayer(basemap[1]);
                 if(map.hasLayer(pubs2)==true){
                     map.removeLayer(pubs2);
@@ -44,11 +53,19 @@ $('#treeview-checkable').treeview({
             if(map.hasLayer(basemap[1])!=true){
                 map.addLayer(basemap[1]);
                 addSPoint();
-                searchlayer.options.layer=pubs2;
-               // search(pubs2);
-
+                var options = {
+                    position:'topleft',
+                    layer:pubs2,
+                    initial: false,
+                    propertyName: 'place',
+                    buildTip: function(text, val) {
+                        var type = val.layer.feature.properties.place;
+                        return '<a href="#" class="'+type+'">'+""+'<b>'+type+'</b></a>';
+                    }
+                };
+                searchlayer.initialize(options);
             }
-            if(map.hasLayer(basemap[0]==true)){
+            if(map.hasLayer(basemap[0])==true){
                 map.removeLayer(basemap[0]);
                 if(map.hasLayer(pubs1)==true){
                     map.removeLayer(pubs1);

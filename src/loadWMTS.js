@@ -38,19 +38,13 @@ function loadWMTS(){
         }
     );
 
-    // L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(map);
 
     map.addLayer(layer);
     map.addLayer(bs);
     var i = map.hasLayer(bs);
     basemap.push(bs);
     basemap.push(ns);
-    // var baseLayers = {
-    //     "北宋" : bs,
-    //     "南宋" : ns
-    // };
-
-  //  L.control.layers(baseLayers, {}).addTo(map);
+    basemap.push(layer);
 
    //点击显示坐标位置
     var popup = L.popup();
@@ -63,20 +57,19 @@ function loadWMTS(){
 
     map.on('click', onMapClick);
   // MiniMap();
-  //   addNPoint();
-  //   var layer = search(pubs1);
-  //   var i = map.hasLayer(layer);
+    addNPoint();
+    map.removeLayer(pubs1);
     search();
-    //
+
     var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var osmAttrib='Map data &copy; OpenStreetMap contributors';
-    var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 18, attribution: osmAttrib});
+    var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttrib});
 
     //map.addLayer(osm);
     //
     //
     // //Plugin magic goes here! Note that you cannot use the same layer object again, as that will confuse the two map controls
-    var osm2 = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 18, attribution: osmAttrib});
+    var osm2 = new L.TileLayer(osmUrl, {minZoom: 3.5, maxZoom: 15, attribution: osmAttrib});
     var miniMap = new L.Control.MiniMap(osm2, {
         // position:'bottomleft',
         width: 250,

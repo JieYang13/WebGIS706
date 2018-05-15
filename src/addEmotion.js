@@ -3,40 +3,40 @@
 //返回得到的时间图层
 function addEmotion(features){
     var geojsonMarkerOptions1 = {
-        radius: 8,
-        fillColor: "#8cb33e",
+        radius: 22,
+        fillColor: "#0206f0",
         color: "#000",
         weight: 1,
         opacity: 1,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions2 = {
-        radius: 10,
-        fillColor: "#739b99",
+        radius: 18,
+        fillColor: "#439eee",
         color: "#000",
         weight: 1,
         opacity: 10,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions3 = {
-        radius: 10,
-        fillColor: "#ccff99",
+        radius: 16,
+        fillColor: "#4fc3ea",
         color: "#000",
         weight: 1,
         opacity: 10,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions4 = {
-        radius: 10,
-        fillColor: "#a0d878",
+        radius: 14,
+        fillColor: "#53d9f3",
         color: "#000",
         weight: 1,
         opacity: 10,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions5 = {
-        radius: 10,
-        fillColor: "#99f158",
+        radius: 12,
+        fillColor: "#48f3ff",
         color: "#000",
         weight: 1,
         opacity: 10,
@@ -44,47 +44,47 @@ function addEmotion(features){
     };
     var geojsonMarkerOptions6 = {
         radius: 10,
-        fillColor: "#028255",
+        fillColor: "#7dffec",
         color: "#000",
         weight: 1,
         opacity: 10,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions7 = {
-        radius: 10,
-        fillColor: "#6ff9c1",
+        radius: 8,
+        fillColor: "#bbfff3",
         color: "#000",
         weight: 1,
         opacity: 10,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions8 = {
-        radius: 10,
-        fillColor: "#02b340",
+        radius: 12,
+        fillColor: "#ffcabf",
         color: "#000",
         weight: 1,
         opacity: 10,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions9 = {
-        radius: 10,
-        fillColor: "#8ba39e",
+        radius: 14,
+        fillColor: "#ffac9d",
         color: "#000",
         weight: 1,
         opacity: 10,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions10 = {
-        radius: 10,
-        fillColor: "#b3ffbc",
+        radius: 16,
+        fillColor: "#ff62a7",
         color: "#000",
         weight: 1,
         opacity: 10,
         fillOpacity: 0.8
     };
     var geojsonMarkerOptions11 = {
-        radius: 10,
-        fillColor: "#e6fffd",
+        radius: 18,
+        fillColor: "#ff1118",
         color: "#000",
         weight: 1,
         opacity: 10,
