@@ -30,20 +30,26 @@
     <script src="libs/leaflet-search.js"></script>
     <script src="src/buttonEvent.js"></script>
     <script src="src/addRemoval.js"></script>
+    <script src="src/heatmap.js"></script>
+    <script src ="src/layers.js"></script>
+    <script src="src/search.js"></script>
 </head>
 <body>
 <!--地图右边工具-->
 <div class="rightTips">
     <div class="rightMenu" id="right_menu">
         <ul>
+            <li  data-href="dom/view/layers.html">
+                <span title="图层切换"><i class="icon-sort"></i></span>
+            </li>
             <li data-href="dom/view/point.html">
                 <span title="点图" ><i class="icon-google-maps"></i></span>
             </li>
             <li  data-href="dom/view/emotion.html">
-                <span title="分析"><i class="icon-sort"></i></span>
+                <span title="分析"><i class="icon-show-big-thumbnails"></i></span>
             </li>
             <li data-href="dom/view/trajectory.html">
-                <span title="轨迹"><i class="icon-show-big-thumbnails"></i></span>
+                <span title="轨迹"><i class="icon-globe"></i></span>
             </li>
             <li data-href="dom/view/mapSet.html">
                 <span title="设置"><i class="icon-cogwheels"></i></span>

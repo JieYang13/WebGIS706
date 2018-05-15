@@ -1,6 +1,7 @@
 
-
-function addEmotion(){
+//输入对应时间的geojson文件得到对应时间的地图效果
+//返回得到的时间图层
+function addEmotion(features){
     var geojsonMarkerOptions1 = {
         radius: 8,
         fillColor: "#8cb33e",
@@ -89,7 +90,7 @@ function addEmotion(){
         opacity: 10,
         fillOpacity: 0.8
     };
-    L.geoJSON(NSong.features, {
+    var timelayer = L.geoJSON(features, {
         pointToLayer: function (feature, latlng) {
            // return L.circleMarker(latlng, geojsonMarkerOptions);
             switch (feature.properties.value) {
@@ -107,5 +108,5 @@ function addEmotion(){
             }
         }
     }).addTo(map);
-
+    return timelayer;
 }

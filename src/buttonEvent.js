@@ -1,7 +1,20 @@
 // 点图点击后的响应函数
+var pointLayer=[];//存放每次点击时间后得到的图层 但是每次只能存在一个图层 如果不是需要将这个数组清空；
 function pointButtonClick(){
     document.getElementById('pointColor').style.visibility = 'visible';
-    addEmotion();
+    var time = document.getElementById('pointtime').value;
+    if(pointLayer.length>0){
+        for(var i=0;i<pointLayer.length;i++){
+            map.removeLayer(pointLayer[i]);
+        }
+    }
+    switch (time){
+        case '北宋980-1093' :var layer = addEmotion(NSong980.features);pointLayer.push(layer);break;
+        case '北宋1094-1127':var layer = addEmotion(NSong1094.features);pointLayer.push(layer);break;
+        case '南宋1128-1189':var layer = addEmotion(SSong1128.features);pointLayer.push(layer);break;
+        case '南宋1190-1278':var layer = addEmotion(SSong1190.features);pointLayer.push(layer);break;
+        default : var layer = addEmotion(NSong980.features);pointLayer.push(layer);break;
+    }
 }
 
 // 苏轼情感迁徙点响应函数
