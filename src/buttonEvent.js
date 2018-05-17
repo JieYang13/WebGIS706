@@ -65,7 +65,7 @@ function sdpButtonClick(){
         document.getElementById('sdpdiv').style.visibility = 'visible';
         overlay = new L.echartsLayer(map, echarts);
     }
-    if(sdpButtonClickCount<34){
+    if(sdpButtonClickCount<35){
         var optiondata ={};
         optiondata.data1 =[];
         optiondata.data2 =[];
@@ -80,7 +80,7 @@ function sdpButtonClick(){
         document.getElementById('inputValue').value = sushi.valuedata[sdpButtonClickCount][1].value;
         addRemoval(optiondata);
     }
-    if(sdpButtonClickCount==34){
+    if(sdpButtonClickCount==35){
         document.getElementById("sdpStart").disabled=true;
     }
     sdpButtonClickCount++;
